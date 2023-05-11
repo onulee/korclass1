@@ -18,7 +18,7 @@ public class C0511_08 {
 		
 		while(true) {
 			// 몇번 도전했는지 확인
-			if(count>=10) {
+			if(count>9) {
 				System.out.println("10번 도전했습니다. 프로그램을 종료합니다.");
 				break;
 			}
@@ -34,11 +34,17 @@ public class C0511_08 {
 			count++;
 		}
 		
+		//count = 10
+		
 		//입력한 숫자 출력
 		System.out.println("정답 : "+random);
 		System.out.print("입력한 숫자 : ");
-		for(int i=0;i<count+1;i++) {
-			System.out.print(num[i]+",");
+		for(int i=0;i<count;i++) {
+			if(i==0) {
+				System.out.print(num[i]);
+			}else {
+				System.out.print(","+num[i]);
+			}
 		}
 		
 		
