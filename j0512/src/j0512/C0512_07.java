@@ -22,8 +22,8 @@ public class C0512_07 {
 				System.out.print(score[i][j]+"\t");
 			}
 			System.out.println();
-		}
+		}//for
 
-	}
+	}//main
 
 }
