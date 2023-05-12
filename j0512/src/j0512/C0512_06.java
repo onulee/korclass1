@@ -21,8 +21,9 @@ public class C0512_06 {
 		int[][] score = new int[3][4];
 		//입력
 		for(int i=0;i<score.length;i++) {
+			//
+			
 			for(int j=0;j<score[i].length;j++) {
-				
 				System.out.println("2차원 점수를 입력하세요.");
 				score[i][j] = scan.nextInt();
 			}

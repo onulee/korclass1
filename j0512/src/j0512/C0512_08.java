@@ -12,6 +12,8 @@ public class C0512_08 {
 		//점수입력
 		for(int i=0;i<score.length;i++) {
 			System.out.println((i+1)+"번째 :");
+			//이름입력받으면 됨.
+			
 			for(int j=0;j<3;j++) {
 				System.out.println(title[j]+" 점수를 입력하세요.");
 				score[i][j] = scan.nextInt();
