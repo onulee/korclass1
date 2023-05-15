@@ -2,10 +2,11 @@ package j0515;
 
 import java.util.Scanner;
 
-public class C0515_07 {
+public class C0515_08 {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
+		// 5,5배열을 만들어서 해당번호를 X표시하는 프로그램을 구현하시오.
+Scanner scan = new Scanner(System.in);
 		
 		// 5,5배열
 		String[][] box = new String[5][5];
@@ -78,6 +79,7 @@ public class C0515_07 {
 			
 			
 		}//while
+		
 		
 		
 		

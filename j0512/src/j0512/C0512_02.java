@@ -16,12 +16,11 @@ public class C0512_02 {
 		//a.변수선언
 		Scanner scan = new Scanner(System.in);
 		int input=0;
+		String modifyName ="";
 		int count=0; //입력된 학생수
+		String[] title = {"이름","국어","영어","수학","합계","평균"};
 		String[] name = new String[10];
-		int[] kor = new int[10];
-		int[] eng = new int[10];
-		int[] math = new int[10];
-		int[] total = new int[10];
+		int[][] score = new int[10][4];
 		double[] avg = new double[10];
 		
 		while(true) {
@@ -55,24 +54,73 @@ public class C0512_02 {
 						System.out.println();
 						break;
 					}
-					System.out.println("국어점수를 입력하세요.");
-					kor[i] = scan.nextInt();
-					System.out.println("영어점수를 입력하세요.");
-					eng[i] = scan.nextInt();
-					System.out.println("수학점수를 입력하세요.");
-					math[i] = scan.nextInt();
-					total[i] = kor[i]+eng[i]+math[i];
-					avg[i] = total[i]/3.0;
+					//국어,영어,수학 -> 합계 title 이름,국어,영어,수학
+					for(int j=0;j<3;j++) {
+						System.out.println(title[j+1]+" 점수를 입력하세요.");
+						score[i][j] = scan.nextInt();
+						score[i][3] = score[i][3] + score[i][j]; //국어,영어,수학 -> 합계
+					}
+										
+					avg[i] = score[i][3]/3.0;
 					count++;
 				}
 				break;
 			case 2:
 				//f.화면출력
-				System.out.println("이름\t국어\t영어\t수학\t합계\t평균");
-				for(int i=0;i<count;i++) {
-					System.out.printf("%s\t%d\t%d\t%d\t%d\t%.2f\n",name[i],kor[i],eng[i],math[i],total[i],avg[i]);
+				for(int i=0;i<title.length;i++) {
+					System.out.print(title[i]+"\t");
 				}
+				System.out.println();
+				System.out.println("-------------------------------------------------------");
+				for(int i=0;i<count;i++) {
+					System.out.printf("%s\t%d\t%d\t%d\t%d\t%.2f\n",name[i],score[i][0],score[i][1],score[i][2],score[i][3],avg[i]);
+				}
+				System.out.println();
 				break;
+			case 3:
+				System.out.println("수정할 학생 이름을 입력하세요.");
+				modifyName = scan.next();
+				
+				int chk=0; //찾을 학생이 없을 경우 0, 있으면 1
+				for(int i=0;i<count;i++) { //모든학생 검색
+					if(name[i].equals(modifyName)) {  // 모든학생 비교
+						System.out.println("[ 수정과목 선택 ]");
+						System.out.println("------------------------");
+						System.out.println("1. 국어");
+						System.out.println("2. 영어");
+						System.out.println("3. 수학");
+						System.out.println("수정할 과목을 선택해 주세요.");
+						input = scan.nextInt(); //
+						chk=1; //찾는 학생이 있을 경우 1로 변경
+						switch(input) {
+						
+						case 1:
+							//score[i][0] 국어,score[i][1] 영어,score[i][2] 수학,score[i][3] 합계
+							System.out.println("현재 국어점수 : "+ score[i][0] );
+							System.out.println("------------------------------");
+							System.out.println("변경할 국어점수를 입력하세요.");
+							score[i][0] = scan.nextInt(); //수정할 점수 입력
+							score[i][3] = score[i][0]+score[i][1]+score[i][2]; //합계 수정
+							avg[i] = score[i][3]/3.0;  //평균수정
+							System.out.println("[ 수정 완료!! ]");
+							System.out.println();
+							break;
+						
+						}//switch
+					}//if
+				}//for
+				
+				//chk
+				if(chk==0) {
+					System.out.println("[ 찾는 학생 없음 !! ]");
+					System.out.println("찾는 학생이 없습니다. 다시 입력해 주세요.");
+					System.out.println();
+				}
+				
+				
+				
+				break;
+				
 			}//switch
 			
 		}//while
