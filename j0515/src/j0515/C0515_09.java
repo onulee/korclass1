@@ -78,7 +78,7 @@ public class C0515_09 {
 				}
 				System.out.println();
 				break;
-			case 3:
+			case 3: //학생성적수정
 				System.out.println("수정할 학생 이름을 입력하세요.");
 				modifyName = scan.next();
 
@@ -93,25 +93,22 @@ public class C0515_09 {
 						System.out.println("수정할 과목을 선택해 주세요.");
 						input = scan.nextInt(); //
 						chk = 1; // 찾는 학생이 있을 경우 1로 변경
-						switch (input) {
 
-						case 1:
-							// score[i][0] 국어,score[i][1] 영어,score[i][2] 수학,score[i][3] 합계
-							System.out.println("현재 국어점수 : " + score[i][0]);
-							System.out.println("------------------------------");
-							System.out.println("변경할 국어점수를 입력하세요.");
-							score[i][0] = scan.nextInt(); // 수정할 점수 입력
-							score[i][3] = score[i][0] + score[i][1] + score[i][2]; // 합계 수정
-							avg[i] = score[i][3] / 3.0; // 평균수정
-							System.out.println("[ 수정 완료!! ]");
-							System.out.println();
-							break;
-
-						}// switch
+						// score[i][0] 국어,score[i][1] 영어,score[i][2] 수학,score[i][3] 합계
+						System.out.println(title[input]+" 점수 : " + score[i][input-1]);
+						System.out.println("------------------------------");
+						System.out.println("변경할 "+title[input]+"점수를 입력하세요.");
+						score[i][input-1] = scan.nextInt(); // 수정할 점수 입력
+						score[i][3] = score[i][0] + score[i][1] + score[i][2]; // 합계 수정
+						avg[i] = score[i][3] / 3.0; // 평균수정
+						System.out.println("[ 수정 완료!! ]");
+						System.out.println();
+						break;
+						
 					} // if
 				} // for
 
-				// chk
+				// chk 학생이름이 없는 경우
 				if (chk == 0) {
 					System.out.println("[ 찾는 학생 없음 !! ]");
 					System.out.println("찾는 학생이 없습니다. 다시 입력해 주세요.");
