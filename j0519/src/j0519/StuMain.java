@@ -10,6 +10,8 @@ public class StuMain {
 		Student[] s = new Student[10]; //배열선언
 		int choice = 0; //원하는 번호 입력하는 변수
 		int count = 0;  //입력된 학생수
+		int chk = 0;    //학생이 있는지 확인하는 변수
+		String searchName=""; //검색할 이름변수
 		
 		//반복문 : while,for
 		//조건이 맞으면 실행 : 무한반복 - 100%
@@ -76,6 +78,80 @@ public class StuMain {
 					System.out.print(s[i].rank+"\n");
 				}
 				System.out.println();
+				break;
+				
+			case 3://
+				System.out.println("[ 학생성적 수정 ]");
+				System.out.println("수정 할 학생의 이름을 입력하세요.(0.이전페이지 이동)");
+				searchName = scan.next();
+				
+				//0번 이전페이지 이동인지 비교
+				if(searchName.equals("0")) {
+					System.out.println("이전페이지로 이동합니다.");
+					System.out.println();
+					break; //switch
+				}
+				
+				// 수정할 학생의 이름을 비교하기 위해 반복문
+				for(int i=0;i<count;i++) {
+					chk = 0; //초기화
+					if(s[i].name.equals(searchName)) {
+						System.out.printf("[ %s 학생이 검색되었습니다. ] \n",searchName);
+						System.out.println("1. 국어점수");
+						System.out.println("2. 영어점수");
+						System.out.println("3. 수학점수");
+						System.out.println("-------------------------");
+						System.out.println("수정할 과목을 선택하세요.>>");
+					    choice = scan.nextInt();
+					    
+					    switch(choice) {
+					    
+					    case 1:
+					    	System.out.printf("[ 이전 국어점수 : %d ]\n",s[i].kor);
+					    	System.out.println("수정할 점수를 입력하세요.>>");
+					    	s[i].kor = scan.nextInt();
+					    	s[i].sum();
+					    	s[i].average();
+					    	System.out.println("[ 국어점수 수정완료 ]");
+					    	System.out.println();
+					    	break;
+					    
+					    case 2:
+					    	System.out.printf("[ 이전 영어점수 : %d ]\n",s[i].eng);
+					    	System.out.println("수정할 점수를 입력하세요.>>");
+					    	s[i].eng = scan.nextInt();
+					    	s[i].sum();
+					    	s[i].average();
+					    	System.out.println("[ 영어점수 수정완료 ]");
+					    	System.out.println();
+					    	break;
+					    	
+					    case 3:
+					    	System.out.printf("[ 이전 수학점수 : %d ]\n",s[i].math);
+					    	System.out.println("수정할 점수를 입력하세요.>>");
+					    	s[i].math = scan.nextInt();
+					    	s[i].sum();
+					    	s[i].average();
+					    	System.out.println("[ 수학점수 수정완료 ]");
+					    	System.out.println();
+					    	break;
+					    
+					    }//switch
+					    chk = 1; //학생이 존재시 1로 변경
+					}//if
+				}//for
+				
+				//학생이 존재하지 않을때 출력
+				if(chk==0) {
+					System.out.printf("[ %s 학생은 존재하지 않습니다. ] \n",searchName);
+					System.out.println();
+				}
+				
+				break;//switch
+				
+			case 4://등수처리
+				System.out.println("[ 등수처리 ]");
+				
 				
 				break;
 				
