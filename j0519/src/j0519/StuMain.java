@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class StuMain {
 
+	//main 메소드
 	public static void main(String[] args) {
 		// 
 		Scanner scan = new Scanner(System.in); //객체선언
@@ -15,7 +16,7 @@ public class StuMain {
 		
 		//반복문 : while,for
 		//조건이 맞으면 실행 : 무한반복 - 100%
-		while(true) {
+		loop:while(true) {
 			System.out.println("[ 학생성적처리 프로그램 ]");
 			System.out.println("1. 성적입력");
 			System.out.println("2. 성적출력");
@@ -59,6 +60,7 @@ public class StuMain {
 				break; //switch빠져나올때 사용되는 구문
 			case 2:
 				System.out.println("[ 학생성적 ]");
+				
 				//String[] title = Student.title;
 				//클래스변수사용방법 : 클래스명.변수명
 				//상단타이틀 출력
@@ -78,10 +80,17 @@ public class StuMain {
 					System.out.print(s[i].rank+"\n");
 				}
 				System.out.println();
+				
+				
+				
+				
+				
 				break;
 				
 			case 3://
 				System.out.println("[ 학생성적 수정 ]");
+				
+				
 				System.out.println("수정 할 학생의 이름을 입력하세요.(0.이전페이지 이동)");
 				searchName = scan.next();
 				
@@ -91,6 +100,8 @@ public class StuMain {
 					System.out.println();
 					break; //switch
 				}
+				
+				
 				
 				// 수정할 학생의 이름을 비교하기 위해 반복문
 				for(int i=0;i<count;i++) {
@@ -151,21 +162,58 @@ public class StuMain {
 				
 			case 4://등수처리
 				System.out.println("[ 등수처리 ]");
+				//등수처리 for문
+				for(int i=0;i<count;i++) { //등록된 학생수 만큼 비교
+					int rankCount = 1; //등수 1부터 시작하기 때문에
+					for(int j=0;j<count;j++) {
+						if(s[i].total<s[j].total) { // 다른학생성적이 더 높으면
+							rankCount++;
+						}
+					}//for
+					s[i].rank = rankCount;  //변수를 등수변수에 저장
+				}//for
 				
-				
+				System.out.println("등수처리가 완료되었습니다.!!");
+				System.out.println();
 				break;
 				
-			default:
+			case 5:
+				System.out.println("[ 학생성적 검색 ]");
 				
+				System.out.println("학생이름을 입력하세요.(0.이전페이지로 이동)");
+				searchName = scan.next();
+				
+				//0번 이전페이지 이동인지 비교
+				if(searchName.equals("0")) {
+					System.out.println("이전페이지로 이동합니다.");
+					System.out.println();
+					break; //switch
+				}
+				chk = 0;
+				for(int i=0;i<count;i++) {
+					if(s[i].name.contains(searchName)) {
+						
+						chk = 1;
+					}
+				}//for
+				
+				//학생이 존재하지 않을때 출력
+				if(chk==0) {
+					System.out.printf("[ %s 학생은 존재하지 않습니다. ] \n",searchName);
+					System.out.println();
+				}
 				break;
-			
-			
-			}
-			
-		}
-		
+				
+			case 0:
+				System.out.println("[ 프로그램 종료 ]");
+				System.out.println();
+				break loop; //switch
+			}//switch
+		}//while
+	}//main
+
+	//성적출력 메소드
+	//recordTitle
 	
-
-	}
-
-}
+	
+}//class
