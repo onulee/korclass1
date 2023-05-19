@@ -13,6 +13,8 @@ public class StuMain {
 		int count = 0;  //입력된 학생수
 		int chk = 0;    //학생이 있는지 확인하는 변수
 		String searchName=""; //검색할 이름변수
+		String name="";
+		int kor=0,eng=0,math=0;
 		
 		//반복문 : while,for
 		//조건이 맞으면 실행 : 무한반복 - 100%
@@ -34,25 +36,24 @@ public class StuMain {
 				//10명 성적을 입력하는 반복문 - (초기식;조건식;증감식)
 				for(int i=count;i<s.length;i++) { //나왔다가 다시 들어올 경우 입력된 학생수 다음부터 진행
 					
-					s[i] = new Student();    //객체선언-공간할당을 해줌.
-					
 					System.out.println((i+1)+"번째 이름을 입력하세요.(0.이전페이지 이동)");
-					s[i].name = scan.next();  //이름입력 또는 이전페이지 이동입력
+					name = scan.next();  //이름입력 또는 이전페이지 이동입력
 					//이전페이지 이동입력이 되었는지 확인 - equals, ==
-					if(s[i].name.equals("0")) {
+					if(name.equals("0")) {
 						System.out.println("[ 이전페이지로 이동합니다. ]");
 						break; //반복문for,while,switch
 					}//if
 					
 					System.out.println("국어점수를 입력하세요.");
-					s[i].kor = scan.nextInt();
+					kor = scan.nextInt();
 					System.out.println("영어점수를 입력하세요.");
-					s[i].eng = scan.nextInt();
+					eng = scan.nextInt();
 					System.out.println("수학점수를 입력하세요.");
-					s[i].math = scan.nextInt();
+					math = scan.nextInt();
 					
-					s[i].sum();     //합계처리
-					s[i].average(); //평균처리
+					//데이터값과 합계,평균
+					s[i] = new Student(name,kor,eng,math);    //객체선언-공간할당을 해줌.
+					
 					
 					count++; //입력이 완료되면 입력된 학생수 1증가
 					
@@ -80,9 +81,6 @@ public class StuMain {
 					System.out.print(s[i].rank+"\n");
 				}
 				System.out.println();
-				
-				
-				
 				
 				
 				break;
