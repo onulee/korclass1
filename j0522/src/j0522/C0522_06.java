@@ -12,6 +12,7 @@ public class C0522_06 {
 		//매개변수가 있는 생성자사용 red auto 5출력하시오.
 		//객체선언
 		Car c2 = new Car("red","auto",5);
+		//red,auto,5
 		System.out.println(c2.color);
 		System.out.println(c2.gearType);
 		System.out.println(c2.door);
@@ -19,6 +20,20 @@ public class C0522_06 {
 		//객체선언
 		// 객체를 복사할때 사용
 		Car c3 = new Car(c2);
+		//blue,stick,3
+		c3.color="blue";
+		c3.gearType="stick";
+		c3.door=3;
+		
+		Car c4 = new Car(c3);
+		
+		c4.color = "yellow";
+		c4.gearType="auto";
+		c4.door=4;
+		//yellow,auto,4
+		
+		c4 = new Car(c3);
+		
 		
 		
 		
