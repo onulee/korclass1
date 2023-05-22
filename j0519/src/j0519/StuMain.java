@@ -99,8 +99,6 @@ public class StuMain {
 					break; //switch
 				}
 				
-				
-				
 				// 수정할 학생의 이름을 비교하기 위해 반복문
 				for(int i=0;i<count;i++) {
 					chk = 0; //초기화
