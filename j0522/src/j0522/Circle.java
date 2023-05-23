@@ -15,9 +15,5 @@ public class Circle extends Shape {
 		this.r = r;
 	}
 	
-	void draw(){
-		System.out.println();
-	}
-	
 	
 }//Circle
