@@ -13,7 +13,8 @@ public class StuMain {
 		int kor=0,eng=0,math=0;
 		//Student[] s = new Student[10]; //배열선언
 		ArrayList<Student> list = new ArrayList<>();
-		//s[0] = new Student(); //객체선언
+		//s[0] = new Student("홍길동",100,100,99);
+		// list.add(new Student("홍길동",100,100,99));
 		
 		//무한반복
 		while(true) {
@@ -85,7 +86,7 @@ public class StuMain {
 							break;	
 						}
 						
-						s.setTotal(s.getKor()+s.getEng()+s.getMath());
+						list.get(i).setTotal(s.getKor()+s.getEng()+s.getMath());
 						s.setAvg(s.getTotal()/3.0);
 						System.out.printf("[ %s점수가 수정되었습니다. ]\n",Student.title[choice+1]);
 						System.out.println();

@@ -18,7 +18,7 @@ public class Buyer {
 	ArrayList<Product> list = new ArrayList();
 	//cart[i] = p , list.add(p) : 객체추가   Object o = new Product();
 	//cart[0]  ,  list.get(0) : 데이터 읽어오기
-	// cart.length , list.size : 총개수
+	// cart.length , list.size() : 총개수
 	
 	String id;
 	String pw;
