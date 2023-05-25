@@ -12,7 +12,8 @@ public class Card {
 	}
 	
 	static String[] kinds = {"SPACE","HEART","DIAMOND","CLOVER"};
-	static String[] numbers = {"0","A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+	static String[] numbers = 
+		{"0","A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 	
 	String kind;
 	int number;
