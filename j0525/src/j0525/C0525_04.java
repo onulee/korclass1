@@ -8,6 +8,7 @@ public class C0525_04 {
 		Tank t2 = new Tank();
 		Marine m2 = new Marine();
 		Scv s1 = new Scv();
+		Vulture v1 = new Vulture();
 		
 		
 		t1.hitPoint -= 10; //총
@@ -16,11 +17,13 @@ public class C0525_04 {
 		s1.repair(t1);
 		System.out.println("수리완료후 체력 : "+ t1.hitPoint);
 		
-		m2.hitPoint -=10;
-		m2.hitPoint -=10;
-		m2.hitPoint -=10;
+		v1.hitPoint -= 10;
+		v1.hitPoint -= 10;
+		System.out.println("현재체력 : "+v1.hitPoint);
+		s1.repair(v1);
+		System.out.println("수리완료후 체력 : "+ v1.hitPoint);
 		
-		s1.repair(m2);
+		
 		
 		
 		
