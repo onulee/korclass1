@@ -27,9 +27,9 @@ public class C0526_02 {
 			fw = new FileWriter("c:/bbb/test.txt");
 			for(int i=0;i<10;i++) {
 				str = str + "글자를 저장합니다. \r\n";
-				fw.write(str); //글자를 저장하는 메소드
-				//fw.flush(); //버퍼에 있는 모든것을 저장
 			}
+			fw.write(str); //글자를 저장하는 메소드
+			//fw.flush(); //버퍼에 있는 모든것을 저장
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

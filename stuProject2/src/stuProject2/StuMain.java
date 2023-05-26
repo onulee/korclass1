@@ -6,6 +6,11 @@ import java.util.Scanner;
 public class StuMain {
 
 	public static void main(String[] args) {
+		
+		
+		
+		
+		
 		Scanner scan = new Scanner(System.in);
 		ArrayList<Student> list = new ArrayList<>(); //10명의 배열을 대신해서 적용
 		StuProcess stuProcess = new StuProcess(); //객체선언
