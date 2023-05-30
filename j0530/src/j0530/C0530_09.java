@@ -23,7 +23,9 @@ public class C0530_09 {
 		list = c3.execute3();
 		
 		//ColClass4 사용하려면?
-		
+		ColClass c4 = new ColClass();
+		Map<String, Object> map2 = new HashMap<>();
+		map2 = c4.execute();
 		
 		
 		
