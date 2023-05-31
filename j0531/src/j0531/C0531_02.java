@@ -46,8 +46,9 @@ public class C0531_02 {
 				break;
 			
 			case 9:
-				
-				
+				sp.stuSave(list);
+				System.out.println("[ 학생성적이 저장되었습니다. ]");
+				System.out.println();
 				break;
 				
 				
