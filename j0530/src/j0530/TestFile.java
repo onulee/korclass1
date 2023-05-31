@@ -50,7 +50,7 @@ public class TestFile {
 	void fileSave() throws Exception {
 		
 		FileWriter fw = null; //파일저장은 try-catch
-		fw = new FileWriter("c:/data/student.txt");
+		fw = new FileWriter("c:/data/student.txt",true);
 		String data = "1,홍길동,100,100,99\r\n";
 		data += "2,유관순,99,99,98\r\n";
 		data += "3,이순신,98,98,91\r\n";
